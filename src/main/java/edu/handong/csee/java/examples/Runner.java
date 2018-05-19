@@ -84,7 +84,7 @@ public class Runner {
 		HelpFormatter formatter = new HelpFormatter();
 		String header = "CLI test program";
 		String footer ="\nPlease report issues at https://github.com/lifove/CLIExample/issues";
-		formatter.printHelp("./CLIExample", header, options, footer, true);
+		formatter.printHelp("CLIExample", header, options, footer, true);
 	}
 
 }
