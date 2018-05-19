@@ -29,10 +29,10 @@ public class Runner {
 				return;
 			}
 			
-			System.out.println("You added the path option with the value: " + path);
+			System.out.println("You provided \"" + path + "\" as the value of the option p");
 			
 			if(verbose) {
-				System.out.println("Your program is temintaed. (This message is shown because you turned on -v option!");
+				System.out.println("Your program is terminated. (This message is shown because you turned on -v option!");
 			}
 		}
 
