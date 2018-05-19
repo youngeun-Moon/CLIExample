@@ -32,7 +32,12 @@ public class Runner {
 			// path is required (necessary) data so no need to have a branch.
 			System.out.println("You provided \"" + path + "\" as the value of the option p");
 			
+			// TODO show the number of files in the path
+			
 			if(verbose) {
+				
+				// TODO list all files in the path
+				
 				System.out.println("Your program is terminated. (This message is shown because you turned on -v option!");
 			}
 		}
