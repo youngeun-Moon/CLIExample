@@ -28,6 +28,12 @@ public class Runner {
 				printHelp(options);
 				return;
 			}
+			
+			System.out.println("You added the path option with the value: " + path);
+			
+			if(verbose) {
+				System.out.println("Your program is temintaed. (This message is shown because you turned on -v option!");
+			}
 		}
 
 	}
@@ -66,7 +72,7 @@ public class Runner {
 		// add options by using OptionBuilder
 		options.addOption(Option.builder("v").longOpt("verbose")
 				.desc("Display detailed messages!")
-				.hasArg()
+				//.hasArg()     // this option is intended not to have an option value but just an option
 				.argName("verbose option")
 				//.required() // this is an optional option. So disabled required().
 				.build());
