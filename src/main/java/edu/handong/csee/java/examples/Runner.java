@@ -29,13 +29,13 @@ public class Runner {
 				return;
 			}
 			
+			// path is required (necessary) data so no need to have a branch.
 			System.out.println("You provided \"" + path + "\" as the value of the option p");
 			
 			if(verbose) {
 				System.out.println("Your program is terminated. (This message is shown because you turned on -v option!");
 			}
 		}
-
 	}
 
 	private boolean parseOptions(Options options, String[] args) {
