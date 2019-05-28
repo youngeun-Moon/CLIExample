@@ -1,5 +1,6 @@
 package edu.handong.csee.java.examples;
 
+import java.io.File;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -12,6 +13,7 @@ public class Runner {
 	String path;
 	boolean verbose;
 	boolean help;
+	boolean fullpath;
 
 	public static void main(String[] args) {
 
@@ -21,22 +23,34 @@ public class Runner {
 	}
 
 	private void run(String[] args) {
-		Options options = createOptions();
+Options options = createOptions();
 		
 		if(parseOptions(options, args)){
+			
 			if (help){
 				printHelp(options);
 				return;
 			}
 			
 			// path is required (necessary) data so no need to have a branch.
-			System.out.println("You provided \"" + path + "\" as the value of the option p");
+				System.out.println("You provided \"" + path + "\" as the value of the option p");
+				File file = new File(path);
+				
+				// TODO show the number of files in the path
+				System.out.println("The number of files in the path is " + file.listFiles().length);
 			
-			// TODO show the number of files in the path
+						
+			if(fullpath) {
+				System.out.println(file.getAbsolutePath());
+			}
+			
 			
 			if(verbose) {
-				
+				for(File files: file.listFiles()) {
+					System.out.println(files.getName());
+				}
 				// TODO list all files in the path
+				
 				
 				System.out.println("Your program is terminated. (This message is shown because you turned on -v option!");
 			}
@@ -53,6 +67,7 @@ public class Runner {
 			path = cmd.getOptionValue("p");
 			verbose = cmd.hasOption("v");
 			help = cmd.hasOption("h");
+			fullpath = cmd.hasOption("f");
 
 		} catch (Exception e) {
 			printHelp(options);
@@ -86,6 +101,13 @@ public class Runner {
 		options.addOption(Option.builder("h").longOpt("help")
 		        .desc("Help")
 		        .build());
+		
+		options.addOption(Option.builder("f").longOpt("fullpath")
+				.desc("print out full path of the files in the directory.")
+				//.hasArg()
+				.argName("Path name to display")
+				//.required()
+				.build());
 
 		return options;
 	}
